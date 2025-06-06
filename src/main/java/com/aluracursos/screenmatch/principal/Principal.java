@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.principal;
 
+import com.aluracursos.screenmatch.model.DatosEpisodio;
 import com.aluracursos.screenmatch.model.DatosSerie;
 import com.aluracursos.screenmatch.model.DatosTemporadas;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
@@ -33,7 +34,18 @@ public class Principal {
             temporadas.add(datosTemporadas);
 
         }
-        temporadas.forEach(System.out::println);
+        //temporadas.forEach(System.out::println);
+
+        // Mostramos únicamente los nombres de los episodios de todas las temporadas
+        /*for (int i = 0; i < datos.totalDeTemporadas(); i++) {
+            List<DatosEpisodio> episodioTemporada = temporadas.get(i).episodios();
+            for (int j = 0; j < episodioTemporada.size(); j++) {
+                System.out.println(episodioTemporada.get(j).titulo());
+            }
+        } */
+
+        // Mismo código que el de arriba comentado pero utilizando forEach
+        temporadas.forEach(t -> t.episodios().forEach(e-> System.out.println(e.titulo())));
 
     }
 }
